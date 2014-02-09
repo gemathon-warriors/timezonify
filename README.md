@@ -1,6 +1,6 @@
-# Zonify
+# Timezonify
 
-> Wanna hold the World Clock in your hands ?? Then its about "time" you use this gem.
+> Wanna hold the World Clock in your hands ?? Then its about "time" you use timezonify.
 
 [![Build Status](https://travis-ci.org/gemathon-warriors/zonify.png?branch=master)](https://travis-ci.org/gemathon-warriors/zonify)
 
@@ -8,7 +8,7 @@
 
 Add this line to your application's Gemfile:
 
-    gem 'zonify'
+    gem 'timezonify'
 
 And then execute:
 
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install zonify
+    $ gem install timezonify
 
 ## Usage
 
@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/zonify/fork )
+1. Fork it ( http://github.com/<my-github-username>/timezonify/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
