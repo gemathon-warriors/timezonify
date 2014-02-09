@@ -6,6 +6,12 @@
 
 [![Coverage Status](https://coveralls.io/repos/gemathon-warriors/zonify/badge.png)](https://coveralls.io/r/gemathon-warriors/zonify)
 
+## Supports
+
+    Rails 1.8.7+ 
+
+> Warning for 1.8.7 users : Use at your own risk as Ruby community has dropped support for 1.8.7
+
 ## Installation
 
 Add this line to your application's Gemfile:
