@@ -4,7 +4,7 @@ describe "Find timezone where the time is" do
 
   it "if no time is sent return current timezone" do
     offset = Zonify::Timezone.timezone_for_time(Time.now)
-    offset.should == 'GMT-05'
+    offset.should == 'GMT'
   end
 
   it "if time is given at GTM return current timezone should be GMT" do
