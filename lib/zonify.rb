@@ -1,8 +1,23 @@
-require 'rubygems'
-require 'activesupport'
+require "zonify/version"
+require 'active_support'
 
-module TimezoneExtension
-  class OffsetHelper
+module Zonify
+  class Timezone
+
+    def self.which_timezone_it_is(time='Time.now.utc')
+      offset = find_offset_for_required_time(time.to_s, current_time="#{Time.now.utc.strftime("%I:%M %p UTC")}")
+
+      if offset < 0
+        formatted_offset = formatted_negative_offset(offset)
+      else
+        formatted_offset = formatted_positive_offset(offset)
+      end
+
+      formatted_offset
+
+    end
+    
+    private
 
     def self.find_offset_for_required_time(required_time='8:00 AM UTC', current_time="#{Time.now.utc.strftime("%I:%M %p UTC")}")
       required_time = Time.parse(required_time)
@@ -20,7 +35,7 @@ module TimezoneExtension
         offset = -offset_in_hours
       end
 
-      return offset
+      offset
     end
 
     def self.formatted_positive_offset(offset_in_hours)
@@ -30,15 +45,15 @@ module TimezoneExtension
       offset_minutes = offset_in_hours.to_s.split('.').last.to_i
       if offset_minutes > 0
         if offset_hours < 10
-            "GMT+0" + "#{offset_hours}" + ":30"
+          "GMT+0" + "#{offset_hours}" + ":30"
         else
-            "GMT+" + "#{offset_hours}" + ":30"
+          "GMT+" + "#{offset_hours}" + ":30"
         end
-          else
+      else
         if offset_hours < 10
-            "GMT+0" + "#{offset_hours}"
+          "GMT+0" + "#{offset_hours}"
         else
-            "GMT+" + "#{offset_hours}"
+          "GMT+" + "#{offset_hours}"
         end
       end
     end
@@ -49,30 +64,31 @@ module TimezoneExtension
       offset_minutes = offset_in_hours.to_s.split('.').last.to_i
       if offset_minutes > 0
         if offset_hours < 10
-            "GMT-0" + "#{offset_hours}" + ":30"
+          "GMT-0" + "#{offset_hours}" + ":30"
         else
-            "GMT-" + "#{offset_hours}" + ":30"
+          "GMT-" + "#{offset_hours}" + ":30"
         end
-          else
+      else
         if offset_hours < 10
-            "GMT-0" + "#{offset_hours}"
+          "GMT-0" + "#{offset_hours}"
         else
-            "GMT-" + "#{offset_hours}"
+          "GMT-" + "#{offset_hours}"
         end
       end
     end
-  end
 
-  class TimezoneHelper
-    def self.find_all_timezones_with_offset(offset_in_hours)
-      offset_in_seconds = offset_in_hours * 3600
-      ActiveSupport::TimeZone.all.select{|tz| tz.utc_offset == offset_in_seconds}
-    end
-  end
+    class TimeHelper
+      def self.time_in_hours(time)
+        (time.strftime("%H").to_f + (((time.strftime("%M")).to_f)/60).round(1))
+      end
+    end 
 
-  class TimeHelper
-    def self.time_in_hours(time)
-      time.strftime("%H").to_f + (((time.strftime("%M")).to_f)/60).round(1)
+    class TimezoneHelper
+      def self.find_all_timezones_with_offset(offset_in_hours)
+        offset_in_seconds = offset_in_hours * 3600
+        ActiveSupport::TimeZone.all.select{|tz| tz.utc_offset == offset_in_seconds}
+      end
     end
+
   end
 end
