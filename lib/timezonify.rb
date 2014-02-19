@@ -1,5 +1,10 @@
 require "timezonify/version"
 require 'active_support'
+require 'active_support/version'
+
+if ActiveSupport::VERSION::MAJOR > 2
+  require 'active_support/core_ext/numeric'
+end
 
 module Timezonify
   class Timezone
