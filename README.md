@@ -1,5 +1,7 @@
 # Zonify
 
+> Wanna hold the World Clock in your hands ?? Then its about "time" you use this gem.
+
 ## Installation
 
 Add this line to your application's Gemfile:
