@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Find timezone where the time is" do
 
-  it "if time is given at GTM return current timezone should be GMT" do
+  it "if time is given at GMT return current timezone should be GMT" do
     offset = Timezonify::Timezone.timezone_for_time(Time.now.utc)
     offset.should == 'GMT'
   end
@@ -17,4 +17,26 @@ describe "Find timezone where the time is" do
     offset.should == 'GMT-05'
   end
 
+  describe "TimeHelper" do
+    it "should return time in hours when time is in complete hour" do
+      time = Time.parse('8:00 AM')
+      Timezonify::TimeHelper.time_in_hours(time).should == 8.0
+    end
+    it "should return time in hours when time is with 30 mins past a complete hour" do
+      time = Time.parse('5:30 AM')
+      Timezonify::TimeHelper.time_in_hours(time).should == 5.5
+    end
+  end
+
+  describe "TimeZoneHelper" do
+    it "should return all timezones with the given offset" do
+      # IST
+      time_in_hours = 5.5
+      expected_results = ActiveSupport::TimeZone.all.select{|tz| tz.utc_offset == time_in_hours * 3600}
+      Timezonify::TimezoneHelper.find_all_timezones_with_offset(time_in_hours).should == expected_results
+    end
+  end
+
 end
+
+

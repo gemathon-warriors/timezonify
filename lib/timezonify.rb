@@ -63,19 +63,18 @@ module Timezonify
         end
       end
     end
+  end
 
-    class TimeHelper
-      def self.time_in_hours(time)
-        (time.strftime("%H").to_f + (((time.strftime("%M")).to_f)/60).round(1))
-      end
-    end 
-
-    class TimezoneHelper
-      def self.find_all_timezones_with_offset(offset_in_hours)
-        offset_in_seconds = offset_in_hours * 3600
-        ActiveSupport::TimeZone.all.select{|tz| tz.utc_offset == offset_in_seconds}
-      end
+  class TimeHelper
+    def self.time_in_hours(time)
+      (time.strftime("%H").to_f + (((time.strftime("%M")).to_f)/60).round(1))
     end
+  end 
 
+  class TimezoneHelper
+    def self.find_all_timezones_with_offset(offset_in_hours)
+      offset_in_seconds = offset_in_hours * 3600
+      ActiveSupport::TimeZone.all.select{|tz| tz.utc_offset == offset_in_seconds}
+    end
   end
 end
