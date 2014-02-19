@@ -8,7 +8,7 @@
 
 ## Supports
 
-    Rails 1.8.7+ 
+    Rails 1.8.7+
 
 > Warning for 1.8.7 users : Use at your own risk as Ruby community has dropped support for 1.8.7
 
@@ -28,7 +28,7 @@ Or install it yourself as:
 
 ## Usage
 
-	Zonify::Timezone.timezone_for_time('10:00 AM')
+	Zonify::Timezone.timezone_for_time('09:00 AM')
 
 ## Contributing
 
