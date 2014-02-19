@@ -1,4 +1,4 @@
-# Timezonify
+# Timezonify    [![GitHub version](https://badge.fury.io/gh/gemathon-warriors%2Fzonify.png)](http://badge.fury.io/gh/gemathon-warriors%2Fzonify)
 
 > Wanna hold the World Clock in your hands ?? Then its about "time" you use timezonify.
 
@@ -28,7 +28,7 @@ Or install it yourself as:
 
 ## Usage
 
-	Zonify::Timezone.timezone_for_time('09:00 AM')
+	Zonify::Timezone.timezone_for_time('10:00 AM')
 
 ## Contributing
 
