@@ -18,44 +18,35 @@ module Zonify
     end
 
     def self.offset_calculator(time1,time2)
-      (time1 - time2)
+      -(time1 - time2)
     end
 
     def self.formatted_positive_offset(offset_in_hours)
       return 'GMT' if (offset_in_hours == 0)
-
       offset_hours = offset_in_hours.to_s.split('.').first.to_i
       offset_minutes = offset_in_hours.to_s.split('.').last.to_i
-      if offset_minutes > 0
-        if offset_hours < 10
-          "GMT+0" + "#{offset_hours}" + ":30"
-        else
-          "GMT+" + "#{offset_hours}" + ":30"
-        end
-      else
-        if offset_hours < 10
-          "GMT+0" + "#{offset_hours}"
-        else
-          "GMT+" + "#{offset_hours}"
-        end
-      end
+      timezone_as_string(offset_hours, offset_minutes, '+')
     end
 
     def self.formatted_negative_offset(negative_offset_in_hours)
       offset_in_hours = negative_offset_in_hours.to_s.split('-').last.to_f
       offset_hours = offset_in_hours.to_s.split('.').first.to_i
       offset_minutes = offset_in_hours.to_s.split('.').last.to_i
+      timezone_as_string(offset_hours, offset_minutes, '-')
+    end
+
+    def self.timezone_as_string(offset_hours, offset_minutes, state)
       if offset_minutes > 0
         if offset_hours < 10
-          "GMT-0" + "#{offset_hours}" + ":30"
+          "GMT#{state}0" + "#{offset_hours}" + ":30"
         else
-          "GMT-" + "#{offset_hours}" + ":30"
+          "GMT#{state}" + "#{offset_hours}" + ":30"
         end
       else
         if offset_hours < 10
-          "GMT-0" + "#{offset_hours}"
+          "GMT#{state}0" + "#{offset_hours}"
         else
-          "GMT-" + "#{offset_hours}"
+          "GMT#{state}" + "#{offset_hours}"
         end
       end
     end
