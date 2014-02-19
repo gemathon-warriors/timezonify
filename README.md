@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-	Zonify::Timezone.which_timezone_it_is('10:00 AM')
+	Zonify::Timezone.timezone_for_time('10:00 AM')
 
 ## Contributing
 

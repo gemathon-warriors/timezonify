@@ -4,7 +4,7 @@ require 'active_support'
 module Zonify
   class Timezone
 
-    def self.which_timezone_it_is(time='Time.now.utc')
+    def self.timezone_for_time(time='Time.now.utc')
       offset = find_offset_for_required_time(time.to_s, current_time="#{Time.now.utc.strftime("%I:%M %p UTC")}")
       ((offset < 0) ? formatted_negative_offset(offset) : formatted_positive_offset(offset))
     end
