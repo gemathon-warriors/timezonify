@@ -6,36 +6,19 @@ module Zonify
 
     def self.which_timezone_it_is(time='Time.now.utc')
       offset = find_offset_for_required_time(time.to_s, current_time="#{Time.now.utc.strftime("%I:%M %p UTC")}")
-
-      if offset < 0
-        formatted_offset = formatted_negative_offset(offset)
-      else
-        formatted_offset = formatted_positive_offset(offset)
-      end
-
-      formatted_offset
-
+      ((offset < 0) ? formatted_negative_offset(offset) : formatted_positive_offset(offset))
     end
-    
+
     private
 
     def self.find_offset_for_required_time(required_time='8:00 AM UTC', current_time="#{Time.now.utc.strftime("%I:%M %p UTC")}")
-      required_time = Time.parse(required_time)
-      current_time = Time.parse(current_time)
+      current_time_in_hours  = TimeHelper.time_in_hours(Time.parse(required_time))
+      required_time_in_hours = TimeHelper.time_in_hours(Time.parse(current_time))
+      (current_time < required_time) ? offset_calculator(required_time_in_hours,current_time_in_hours) : offset_calculator(current_time_in_hours,required_time_in_hours)
+    end
 
-      if current_time < required_time
-        current_time_in_hours = TimeHelper.time_in_hours(current_time)
-        required_time_in_hours = TimeHelper.time_in_hours(required_time)
-        offset_in_hours = required_time_in_hours - current_time_in_hours
-        offset = offset_in_hours
-      else current_time > required_time
-        current_time_in_hours = TimeHelper.time_in_hours(current_time)
-        required_time_in_hours = TimeHelper.time_in_hours(required_time)
-        offset_in_hours = current_time_in_hours - required_time_in_hours
-        offset = -offset_in_hours
-      end
-
-      offset
+    def self.offset_calculator(time1,time2)
+      (time1 - time2)
     end
 
     def self.formatted_positive_offset(offset_in_hours)
