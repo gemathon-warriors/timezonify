@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'zonify/version'
+require 'timezonify/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "zonify"
-  spec.version       = Zonify::VERSION
+  spec.name          = "timezonify"
+  spec.version       = Timezonify::VERSION
   spec.authors       = ["Nikhil Nanjappa", "Ashish Upadhyay", "Ankur Gera", "Gourav Tiwari", "Hrishita Vaish"]
   spec.email         = ["kainikhil@gmail.com", "ashish.upadhyaye@gmail.com", "ankurgera@gmail.com", "gouravtiwari21@gmail.com", "vaish.hrishita@tcs.com"]
   spec.summary       = %q{Finds timezone for a specific time eg. Where is it 8 AM now ?}

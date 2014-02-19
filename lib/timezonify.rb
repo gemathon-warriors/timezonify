@@ -1,7 +1,7 @@
-require "zonify/version"
+require "timezonify/version"
 require 'active_support'
 
-module Zonify
+module Timezonify
   class Timezone
 
     def self.timezone_for_time(time='Time.now.utc')

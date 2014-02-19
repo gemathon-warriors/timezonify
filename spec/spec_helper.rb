@@ -1,6 +1,6 @@
 require 'bundler/setup'
 Bundler.setup
-require 'zonify'
+require 'timezonify'
 
 require 'coveralls'
 Coveralls.wear!
