@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/gemathon-warriors/zonify.png?branch=master)](https://travis-ci.org/gemathon-warriors/zonify)
 
+[![Coverage Status](https://coveralls.io/repos/gemathon-warriors/zonify/badge.png)](https://coveralls.io/r/gemathon-warriors/zonify)
+
 ## Installation
 
 Add this line to your application's Gemfile:
