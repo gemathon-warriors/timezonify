@@ -1,10 +1,7 @@
-# Timezonify    [![GitHub version](https://badge.fury.io/gh/gemathon-warriors%2Fzonify.png)](http://badge.fury.io/gh/gemathon-warriors%2Fzonify)
+# Timezonify    [![GitHub version](https://badge.fury.io/gh/gemathon-warriors%2Fzonify.png)](http://badge.fury.io/gh/gemathon-warriors%2Fzonify)[![Build Status](https://travis-ci.org/gemathon-warriors/zonify.png?branch=master)](https://travis-ci.org/gemathon-warriors/zonify)[![Coverage Status](https://coveralls.io/repos/gemathon-warriors/zonify/badge.png)](https://coveralls.io/r/gemathon-warriors/zonify)
 
 > Wanna hold the World Clock in your hands ?? Then its about "time" you use timezonify.
 
-[![Build Status](https://travis-ci.org/gemathon-warriors/zonify.png?branch=master)](https://travis-ci.org/gemathon-warriors/zonify)
-
-[![Coverage Status](https://coveralls.io/repos/gemathon-warriors/zonify/badge.png)](https://coveralls.io/r/gemathon-warriors/zonify)
 
 ## Supports
 
