@@ -23,16 +23,24 @@ module Zonify
 
     def self.formatted_positive_offset(offset_in_hours)
       return 'GMT' if (offset_in_hours == 0)
-      offset_hours = offset_in_hours.to_s.split('.').first.to_i
-      offset_minutes = offset_in_hours.to_s.split('.').last.to_i
+      offset_hours = hour_from_offset(offset_in_hours)
+      offset_minutes = minutes_from_offset(offset_in_hours)
       timezone_as_string(offset_hours, offset_minutes, '+')
     end
 
     def self.formatted_negative_offset(negative_offset_in_hours)
       offset_in_hours = negative_offset_in_hours.to_s.split('-').last.to_f
-      offset_hours = offset_in_hours.to_s.split('.').first.to_i
-      offset_minutes = offset_in_hours.to_s.split('.').last.to_i
+      offset_hours    = hour_from_offset(offset_in_hours)
+      offset_minutes  = minutes_from_offset(offset_in_hours)
       timezone_as_string(offset_hours, offset_minutes, '-')
+    end
+
+    def self.hour_from_offset(offset_in_hours)
+      offset_in_hours.to_s.split('.').first.to_i
+    end
+
+    def self.minutes_from_offset(offset_in_hours)
+      offset_in_hours.to_s.split('.').last.to_i
     end
 
     def self.timezone_as_string(offset_hours, offset_minutes, state)
