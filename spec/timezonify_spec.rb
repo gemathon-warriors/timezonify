@@ -42,4 +42,34 @@ describe "Find timezone where the time is" do
     end
   end
 
+  describe "Mapping" do
+    describe "Find Countries based on timezone" do
+
+      it "should return India for GMT+05:30" do
+        country = Timezonify::Timezone.find_country_in_timezone('GMT+05:30')
+        country.should be_kind_of(Array)
+        country.include?("India")
+      end
+
+      it "should return India for GMT+5:30" do
+        country = Timezonify::Timezone.find_country_in_timezone('GMT+5:30')
+        country.should be_kind_of(Array)
+        country.include?("India")
+      end
+
+      it "should return Colombia for GMT-5:00" do
+        country = Timezonify::Timezone.find_country_in_timezone('GMT-5:00')
+        country.should be_kind_of(Array)
+        country.include?("Colombia")
+      end
+
+      it "should return Colombia for GMT-5" do
+        country = Timezonify::Timezone.find_country_in_timezone('GMT-5')
+        country.should be_kind_of(Array)
+        country.include?("Colombia")
+      end
+
+    end
+  end
+
 end
