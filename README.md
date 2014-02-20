@@ -1,4 +1,4 @@
-# Timezonify    [![Gem Version](https://badge.fury.io/rb/timezonify.png)](http://badge.fury.io/rb/timezonify)   [![Build Status](https://travis-ci.org/gemathon-warriors/timezonify.png?branch=master)](https://travis-ci.org/gemathon-warriors/timezonify)
+# Timezonify    [![Gem Version](https://badge.fury.io/rb/timezonify.png)](http://badge.fury.io/rb/timezonify)   [![Build Status](https://travis-ci.org/gemathon-warriors/timezonify.png?branch=master)](https://travis-ci.org/gemathon-warriors/timezonify)   <!---  [![Coverage Status](https://coveralls.io/repos/gemathon-warriors/timezonify/badge.png)](https://coveralls.io/r/gemathon-warriors/timezonify) -->
 
 > Wanna hold the World Clock in your hands ?? Then its about "time" you use timezonify.
 
