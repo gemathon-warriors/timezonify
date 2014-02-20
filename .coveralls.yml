@@ -1,2 +1,2 @@
 service_name: travis-ci
-repo_token: zkrjRduOvPBRRjQl3sPfbhweWZYtrFUrr bundle exec rspec spec
+repo_token: zkrjRduOvPBRRjQl3sPfbhweWZYtrFUrr
