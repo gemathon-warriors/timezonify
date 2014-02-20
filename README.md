@@ -26,6 +26,16 @@ Or install it yourself as:
 
 ## Usage
 
+If you want to find your `current timezone` then simply execute this
+
+    Timezonify::Timezone.local_zone()
+
+If you want to find the `list of all countries falling in a specific timezone` then execute this
+
+	Timezonify::Timezone.find_country_in_timezone("GMT+13")
+
+If you want to find the `timezone for a specific time` then execute this
+
 	Timezonify::Timezone.timezone_for_time('10:00 AM')
 
 ## Contributing
