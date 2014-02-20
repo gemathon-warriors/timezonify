@@ -5,7 +5,7 @@
 
 ## Supports
 
-    Rails 1.8.7+
+    Ruby 1.8.7+, Rails 2.3.16+
 
 > Warning for 1.8.7 users : Use at your own risk as Ruby community has dropped support for 1.8.7
 
