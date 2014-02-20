@@ -1,3 +1,6 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 require "timezonify/version"
 require 'active_support'
 require 'active_support/version'
