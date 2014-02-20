@@ -17,6 +17,11 @@ describe "Find timezone where the time is" do
     offset.should == 'GMT-05'
   end
 
+  it "should return local machine timezone" do
+    zone = Timezonify::Timezone.local_zone
+    zone.should == 'GMT'
+  end
+
   describe "TimeHelper" do
     it "should return time in hours when time is in complete hour" do
       time = Time.parse('8:00 AM')
@@ -38,5 +43,3 @@ describe "Find timezone where the time is" do
   end
 
 end
-
-

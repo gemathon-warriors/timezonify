@@ -9,6 +9,10 @@ end
 module Timezonify
   class Timezone
 
+    def self.local_zone
+      timezone_for_time(Time.now)
+    end
+
     def self.timezone_for_time(time='Time.now.utc')
       offset = find_offset_for_required_time(time.to_s, current_time="#{Time.now.utc.strftime("%I:%M %p UTC")}")
       ((offset < 0) ? formatted_negative_offset(offset) : formatted_positive_offset(offset))
