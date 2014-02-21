@@ -12,6 +12,17 @@ end
 module Timezonify
   class Timezone
 
+    def self.find_time_at(timezone)
+      return Time.now.utc unless timezone.include?(":")
+      operation = timezone.split("GMT").last[0]
+      hours_n_minutes = timezone.gsub("+","").gsub("-","").split("GMT").last.split(":")
+      hours_to_seconds = hours_n_minutes.first.to_i * 60 * 60
+      minutes_to_seconds = hours_n_minutes.last.to_i * 60
+      total_seconds_diff = hours_to_seconds + minutes_to_seconds
+      total_seconds_diff = -(total_seconds_diff) unless(operation == "+")
+      ActiveSupport::TimeZone[total_seconds_diff].now
+    end
+
     def self.find_country_in_timezone(timezone)
       Mapping.timezone_country["#{timezone.gsub('+0','+').gsub(':00','')}"]
     end

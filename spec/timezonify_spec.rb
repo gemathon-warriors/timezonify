@@ -2,6 +2,15 @@ require 'spec_helper'
 
 describe "Find timezone where the time is" do
 
+  it "should give proper time for GMT"  do
+    # Timezonify::Timezone.find_time_at("GMT").to_s.should == Time.now.utc.to_s
+  end
+
+  it "should give proper time in a given timezone"  do
+    Timezonify::Timezone.find_time_at("GMT+3:00").to_s.should == ActiveSupport::TimeZone[+3].now.to_s
+    Timezonify::Timezone.find_time_at("GMT-5:00").to_s.should == ActiveSupport::TimeZone[-5].now.to_s
+  end
+
   it "if time is given at GMT return current timezone should be GMT" do
     offset = Timezonify::Timezone.timezone_for_time(Time.now.utc)
     offset.should == 'GMT'
