@@ -13,7 +13,7 @@ module Timezonify
   class Timezone
 
     def self.find_time_at(timezone)
-      return Time.now.utc unless timezone.include?(":")
+      return (ActiveSupport::TimeZone[0].now) unless timezone.include?(":")
       operation = timezone.split("GMT").last[0]
       hours_n_minutes = timezone.gsub("+","").gsub("-","").split("GMT").last.split(":")
       hours_to_seconds = hours_n_minutes.first.to_i * 60 * 60
